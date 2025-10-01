@@ -12,7 +12,7 @@ implementation of a peer-to-peer distributed file sharing system. i have covered
 The network is managed by two Tracker Servers which act as centralized coordinators for metadata but do not store any file data themselves.
 
 **Trackers**: Two tracker servers run concurrently to provide redundancy and high availability.
-**Clients**: client provides a command-line interface for all user and group operations.
+**Clients**: client provides a cmnd-line interface for all user and group operations.
 
 The entire system is built using C++ and standard POSIX sockets for network communication, with a custom-designed protocol
 
@@ -22,7 +22,7 @@ The entire system is built using C++ and standard POSIX sockets for network comm
 ### File Structure
 The project is organized into two main directories:
 ```
-2025201036_A3
+2025201036_A3_Interim
 ├── tracker/
 │   ├── tracker.cpp
 │   └── Makefile
@@ -30,11 +30,12 @@ The project is organized into two main directories:
 │   ├── client.cpp
 │   └── Makefile
 └── README.md
+└── tracker_info.txt
 ```
 
 ### Compilation
 
-open the terminal from the directory `2025201036_A3`
+open the terminal from the directory `2025201036_A3_Interim`
 
 1.  #### compile tracker
     ```bash
@@ -56,7 +57,7 @@ The system requires 4 separate terminals to run.
 
 2.  ### Terminal 2: Start Tracker #2
     ```bash
-    ./tracker/tracker tracker_info.txt 2
+    ./tracker tracker_info.txt 2
     ```
     Terminal o/p -> This tracker will listen on its port (e.g., 8081). The two trackers will automatically connect and synchronize with each other.
 
@@ -129,12 +130,12 @@ The system requires 4 separate terminals to run.
     ```
 2.  **List and accept requests:**
     ```
-    list_requests grp1
+    grp1
     > SERVER: Pending requests for grp1:
     > aman
     accept_request grp1 aman
     > SERVER: SUCCESS: User request accepted.
-    ```
+    ``` 
 
 #### E. Final Synchronization Test
 1.  In the 4th terminal
@@ -148,3 +149,14 @@ The system requires 4 separate terminals to run.
     ```
     Result -  The login is successful (`SERVER: SUCCESS: Login successful.`).
     This proves that user data was correctly synchronized from Tracker #1 to Tracker #2.
+
+
+./tracker tracker_info.txt 1
+
+./tracker tracker_info.txt 2
+
+./client 127.0.0.1:8080 9001
+
+./client 127.0.0.1:8081 9002
+
+```````````````````````````````````````````````````````````````````````
